@@ -1,25 +1,25 @@
 package ru.savinov.restApp.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "Account")
 public class Account {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    //@Column
     private String name;
 
+    //@Column
     private String email;
 
+   // @Column
     private Integer bill;
 
-    public Account(Long id, String name, String email, Integer bill) {
-        this.id = id;
+    public Account(String name, String email, Integer bill) {
         this.name = name;
         this.email = email;
         this.bill = bill;
