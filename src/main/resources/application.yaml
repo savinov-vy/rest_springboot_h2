@@ -1,7 +1,7 @@
-#server:
-#  port: 8189
-#  servlet:
-#    context-path: /rest
+server:
+  port: 8189
+  servlet:
+    context-path: /rest
 
 spring:
   h2:
@@ -10,7 +10,7 @@ spring:
       path: /h2
   datasource:
     url: jdbc:h2:mem:~/test
-#    localhost:8080/h2
+#    localhost:8189/rest/h2
 #    JDBC URL: jdbc:h2:mem:~/test
 #    username: sa
 #    password:
