@@ -1,7 +1,10 @@
 server:
+  error:
+    include-message: always
   port: 8189
   servlet:
     context-path: /rest
+
 
 spring:
   h2:
@@ -15,3 +18,4 @@ spring:
 #    username: sa
 #    password:
 
+#ssd server.error.include-message=always
