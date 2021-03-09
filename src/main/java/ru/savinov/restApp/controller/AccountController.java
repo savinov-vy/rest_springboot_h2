@@ -8,6 +8,8 @@ import ru.savinov.restApp.controller.dto.AccountResponseDTO;
 import ru.savinov.restApp.entity.Account;
 import ru.savinov.restApp.service.AccountService;
 
+import java.util.List;
+
 @RestController
 public class AccountController {
 
@@ -35,5 +37,15 @@ public class AccountController {
     public AccountResponseDTO getAccount(@PathVariable Long id) throws AccountNotFoundExeption {
         Account account = accountService.getAccountById(id);
         return new AccountResponseDTO(account);
+    }
+
+    @GetMapping("/accounts/all")
+    public List<AccountResponseDTO> getAllAccount() {
+        return accountService.getAllAccounts();
+    }
+
+    @DeleteMapping("/accounts/{id}")
+    public AccountResponseDTO deleteById (@PathVariable Long id) {
+        return accountService.deleteById(id);
     }
 }
