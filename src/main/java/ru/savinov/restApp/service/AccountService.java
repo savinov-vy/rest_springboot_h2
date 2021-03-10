@@ -20,7 +20,6 @@ public class AccountService {
         this.accountRepository = accountRepository;
     }
 
-
     public Long createAccount(String name, String email, Integer bill) {
         Account account = new Account(name, email, bill);
         Account createdAcc = accountRepository.save(account);

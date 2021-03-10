@@ -26,13 +26,14 @@ public class AccountController {
     }
 
     @PostMapping("/accounts")
-    public Long createAccount (@RequestBody AccountRequestDTO accountRequestDTO) {
+    public Long createAccount(@RequestBody AccountRequestDTO accountRequestDTO) {
 
         Long accountId = accountService.createAccount(accountRequestDTO.getName(),
                 accountRequestDTO.getEmail(),
                 accountRequestDTO.getBill());
         return accountId;
     }
+
     @GetMapping("/accounts/{id}")
     public AccountResponseDTO getAccount(@PathVariable Long id) throws AccountNotFoundExeption {
         Account account = accountService.getAccountById(id);
@@ -44,8 +45,13 @@ public class AccountController {
         return accountService.getAllAccounts();
     }
 
+    @GetMapping("/string")
+    public String getString(@RequestParam(name = "ABC", required = false, defaultValue = "DEF") String line) {
+        return line;
+    }
+
     @DeleteMapping("/accounts/{id}")
-    public AccountResponseDTO deleteById (@PathVariable Long id) {
+    public AccountResponseDTO deleteById(@PathVariable Long id) {
         return accountService.deleteById(id);
     }
 }
