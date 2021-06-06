@@ -1,6 +1,7 @@
 package ru.savinov.restApp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import ru.savinov.restApp.exeption.AccountNotFoundExeption;
 import ru.savinov.restApp.controller.dto.AccountRequestDTO;
@@ -15,6 +16,9 @@ public class AccountController {
 
     public final AccountService accountService;
 
+    @Value("${spring.greeting}")
+    private String greeting;
+
     @Autowired
     public AccountController(AccountService accountService) {
         this.accountService = accountService;
@@ -22,7 +26,7 @@ public class AccountController {
 
     @GetMapping("/hello")
     public String helloSpring() {
-        return "Hello Spring";
+        return greeting;
     }
 
     @PostMapping("/accounts")
